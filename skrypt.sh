@@ -31,6 +31,12 @@ while test $# -gt 0; do
 					shift
 			fi
 			;;
+		--init)
+			pwd_dir=$(pwd)
+			cd pwd_dir
+			git clone https://github.com/Generekalipsa/laboratorium4.git
+			PATH=$PATH:$pwd_dir
+			shift
 		*)
 			echo "$1 flag does not exist"
 			return 1;
