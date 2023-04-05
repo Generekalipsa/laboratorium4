@@ -4,9 +4,9 @@ while test $# -gt 0; do
 	case "$1" in
 		--help | -h)
 			echo "Usage: ./skrypt.sh [OPTION]
---date					Show date
---logs <LOG_NUMBER>			Create logs (default 100)
---help					Show this help message"
+-d, --date					Show date
+-l, --logs <LOG_NUMBER>			Create logs (default 100)
+-h, --help					Show this help message"
 			exit 0
 			shift
 			;;
