@@ -40,6 +40,23 @@ while test $# -gt 0; do
 			PATH=$PATH:$pwd_dir
 			shift
 			;;
+		--error | -e)
+			if [ $2 ]; then
+				for x in $(seq 1 $2)
+					do 
+						mkdir error$x
+						echo "error$x.txt $script_name $file_date" > error$x/error$x.txt
+					done
+					shift
+			else
+				for x in {1..100}
+					do 
+						mkdir error$x
+						echo "error$x.txt $script_name $file_date" > error$x/error$x.txt
+					done
+					shift
+			fi
+			;;
 		*)
 			echo "$1 flag does not exist"
 			return 1;
