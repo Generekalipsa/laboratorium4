@@ -5,7 +5,9 @@ while test $# -gt 0; do
 		--help | -h)
 			echo "Usage: ./skrypt.sh [OPTION]
 -d, --date					Show date
--l, --logs <LOG_NUMBER>			Create logs (default 100)
+-l, --logs <LOG_NUMBER>				Create logs (default 100)
+--init						Clone git repo and add script path to PATH
+-e, --error <LOG_NUMBER>			Create logs (default 100)
 -h, --help					Show this help message"
 			exit 0
 			shift
@@ -32,6 +34,7 @@ while test $# -gt 0; do
 					done
 					shift
 			fi
+			shift
 			;;
 		--init)
 			pwd_dir=$(pwd)
@@ -56,10 +59,11 @@ while test $# -gt 0; do
 					done
 					shift
 			fi
+			shift
 			;;
 		*)
 			echo "$1 flag does not exist"
-			return 1;
+			exit 1;
 			;;
 	esac
 done
