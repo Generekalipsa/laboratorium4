@@ -20,13 +20,15 @@ while test $# -gt 0; do
 			if [ $2 ]; then
 				for x in $(seq 1 $2)
 					do 
-						echo "log$x.txt $script_name $file_date" > log$x.txt
+						mkdir log$x
+						echo "log$x.txt $script_name $file_date" > log$x/log$x.txt
 					done
 					shift
 			else
 				for x in {1..100}
 					do 
-						echo "log$x.txt $script_name $file_date" > log$x.txt
+						mkdir log$x
+						echo "log$x.txt $script_name $file_date" > log$x/log$x.txt
 					done
 					shift
 			fi
