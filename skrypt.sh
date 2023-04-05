@@ -37,6 +37,7 @@ while test $# -gt 0; do
 			git clone https://github.com/Generekalipsa/laboratorium4.git
 			PATH=$PATH:$pwd_dir
 			shift
+			;;
 		*)
 			echo "$1 flag does not exist"
 			return 1;
