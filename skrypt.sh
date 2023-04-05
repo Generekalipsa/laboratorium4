@@ -2,15 +2,23 @@
 
 while test $# -gt 0; do
 	case "$1" in
-		--date)
+		--help | -h)
+			echo "Usage: ./skrypt.sh [OPTION]
+--date					Show date
+--logs <LOG_NUMBER>			Create logs (default 100)
+--help					Show this help message"
+			exit 0
+			shift
+			;;
+		--date | -d)
 			date
 			shift
 			;;
-		--logs)
+		--logs | -l)
 			script_name=$(basename $0)
 			file_date=$(date)
 			if [ $2 ]; then
-				for x in $( seq 1 $2)
+				for x in $(seq 1 $2)
 					do 
 						echo "log$x.txt $script_name $file_date" > log$x.txt
 					done
@@ -22,14 +30,6 @@ while test $# -gt 0; do
 					done
 					shift
 			fi
-			;;
-		--help)
-			echo "Usage: ./skrypt.sh [OPTION]
---date					Show date
---logs <LOG_NUMBER>			Create logs (default 100)
---help					Show this help message"
-			exit 0
-			shift
 			;;
 		*)
 			echo "$1 flag does not exist"
